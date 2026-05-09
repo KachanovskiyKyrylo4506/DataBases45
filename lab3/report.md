@@ -463,7 +463,7 @@ SELECT * FROM cars WHERE owner_id = 6;
 <img width="960" height="202" alt="Screenshot From 2026-05-10 00-07-57" src="https://github.com/user-attachments/assets/4ea9b753-b0c3-4d1f-8244-1ce055254fad" />
 <img width="960" height="202" alt="Screenshot From 2026-05-10 00-08-11" src="https://github.com/user-attachments/assets/3ad389d9-e274-47b3-9516-5f7fae5777a7" />
 <img width="960" height="202" alt="Screenshot From 2026-05-10 00-08-33" src="https://github.com/user-attachments/assets/d4d77f63-0ee3-495d-9cd3-54607884a5c0" />
-Після цієї лаби знову повернусь до стану після 2 лаби, щоб робити запити до наступної лаби
+Після цієї лаби візьму всі insert з другої і третьої лаби, а update та delete виконувати не буду, щоб зробити заповнені таблички
 
 
 
