@@ -1,0 +1,75 @@
+generator client {
+  provider = "prisma-client"
+  output   = "./generated"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model cars {
+  car_id        Int       @id @default(autoincrement())
+  owner_id      Int
+  category_id   Int?
+  brand         String    @db.VarChar(50)
+  model         String    @db.VarChar(50)
+  year          Int       @db.SmallInt
+  price_per_day Decimal   @db.Decimal(8, 2)
+  status        String    @default("available") @db.VarChar(20)
+  users         users     @relation(fields: [owner_id], references: [user_id], onDelete: NoAction, onUpdate: NoAction)
+  rentals       rentals[]
+  car_categories car_categories? @relation(fields: [category_id], references: [category_id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model payments {
+  payment_id Int      @id @default(autoincrement())
+  rental_id  Int      @unique
+  amount     Decimal  @db.Decimal(10, 2)
+  method     String   @db.VarChar(20)
+  paid_at    DateTime @default(now()) @db.Timestamp(6)
+  rentals    rentals  @relation(fields: [rental_id], references: [rental_id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model rentals {
+  rental_id   Int       @id @default(autoincrement())
+  car_id      Int
+  client_id   Int
+  start_date  DateTime  @db.Date
+  end_date    DateTime  @db.Date
+  total_price Decimal   @db.Decimal(10, 2)
+  status      String    @default("pending") @db.VarChar(20)
+  payments    payments?
+  cars        cars      @relation(fields: [car_id], references: [car_id], onDelete: NoAction, onUpdate: NoAction)
+  users       users     @relation(fields: [client_id], references: [user_id], onDelete: NoAction, onUpdate: NoAction)
+  reviews     reviews?
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model reviews {
+  review_id  Int      @id @default(autoincrement())
+  rental_id  Int      @unique
+  rating     Int      @db.SmallInt
+  comment    String?
+  created_at DateTime @default(now()) @db.Timestamp(6)
+  rentals    rentals  @relation(fields: [rental_id], references: [rental_id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model users {
+  user_id        Int       @id @default(autoincrement())
+  full_name      String    @db.VarChar(100)
+  phone          String    @unique @db.VarChar(20)
+  email          String    @unique @db.VarChar(150)
+  driver_license String    @unique @db.VarChar(20)
+  created_at     DateTime  @default(now()) @db.Timestamp(6)
+  cars           cars[]
+  rentals        rentals[]
+}
+
+model car_categories {
+  category_id Int    @id @default(autoincrement())
+  name        String @unique @db.VarChar(50)
+  cars        cars[]
+}
