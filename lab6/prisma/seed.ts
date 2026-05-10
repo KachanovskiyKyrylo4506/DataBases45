@@ -9,6 +9,7 @@ const prisma = new PrismaClient({ adapter });
 
 async function main() {
   console.log('⏳ Очищення старих даних...');
+  
   await prisma.reviews.deleteMany();
   await prisma.payments.deleteMany();
   await prisma.rentals.deleteMany();
@@ -28,13 +29,21 @@ async function main() {
     ],
   });
 
+  await prisma.car_categories.createMany({
+    data: [
+      { category_id: 1, name: 'Седан' },
+      { category_id: 2, name: 'Позашляховик' },
+      { category_id: 3, name: 'Хетчбек' },
+    ],
+  });
+
   await prisma.cars.createMany({
     data: [
-      { car_id: 1, owner_id: 1, brand: 'Toyota', model: 'Camry', year: 2020, price_per_day: 1200.00, status: 'available' },
-      { car_id: 2, owner_id: 1, brand: 'Toyota', model: 'RAV4', year: 2021, price_per_day: 1800.00, status: 'rented' },
-      { car_id: 3, owner_id: 2, brand: 'BMW', model: '3 Series', year: 2019, price_per_day: 2500.00, status: 'available' },
-      { car_id: 4, owner_id: 3, brand: 'Volkswagen', model: 'Golf', year: 2018, price_per_day: 900.00, status: 'available' },
-      { car_id: 5, owner_id: 3, brand: 'Hyundai', model: 'Tucson', year: 2022, price_per_day: 1600.00, status: 'maintenance' },
+      { car_id: 1, owner_id: 1, category_id: 1, brand: 'Toyota', model: 'Camry', year: 2020, price_per_day: 1200.00, status: 'available' },
+      { car_id: 2, owner_id: 1, category_id: 2, brand: 'Toyota', model: 'RAV4', year: 2021, price_per_day: 1800.00, status: 'rented' },
+      { car_id: 3, owner_id: 2, category_id: 1, brand: 'BMW', model: '3 Series', year: 2019, price_per_day: 2500.00, status: 'available' },
+      { car_id: 4, owner_id: 3, category_id: 3, brand: 'Volkswagen', model: 'Golf', year: 2018, price_per_day: 900.00, status: 'available' },
+      { car_id: 5, owner_id: 3, category_id: 2, brand: 'Hyundai', model: 'Tucson', year: 2022, price_per_day: 1600.00, status: 'maintenance' },
     ],
   });
 
