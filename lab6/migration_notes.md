@@ -415,25 +415,31 @@ Prisma Studio доступне за адресою `http://localhost:5555`.
 
 **Скріншот — список таблиць:**
 
-<img width="177" height="248" alt="image" src="https://github.com/user-attachments/assets/d47142f4-6d19-459b-8a9c-80799f6cbe79" />
+<img width="195" height="499" alt="image" src="https://github.com/user-attachments/assets/0980b6b0-02bf-4227-9a35-4e2fd5c634b1" />
 
 **Скріншот — таблиця `users`:**
 
-<img width="1874" height="302" alt="image" src="https://github.com/user-attachments/assets/c05d9770-4052-4b82-b7cc-187d19d4975d" />
+<img width="2031" height="298" alt="image" src="https://github.com/user-attachments/assets/fedc26ad-fdad-46bc-9ce2-80693adbe504" />
 
 **Скріншот — таблиця `cars`:**
 
-<img width="2049" height="313" alt="image" src="https://github.com/user-attachments/assets/d9a14d45-6eca-4556-b3f3-e803d9ce5d91" />
+<img width="2031" height="298" alt="image" src="https://github.com/user-attachments/assets/c22d44c0-ed3f-4536-8262-00e48d10738b" />
 
 **Скріншот — таблиця `payments`:**
 
-<img width="1237" height="300" alt="image" src="https://github.com/user-attachments/assets/88b1b211-eaec-4897-acb3-93eee09daf3c" />
+<img width="2031" height="298" alt="image" src="https://github.com/user-attachments/assets/c6714687-7ac8-40de-b1f2-175cd915fd4d" />
 
 **Скріншот — таблиця `rentals`:**
-<img width="2040" height="304" alt="image" src="https://github.com/user-attachments/assets/a7ebf818-913c-491d-be32-1cfd1f38b6d6" />
+
+<img width="2031" height="298" alt="image" src="https://github.com/user-attachments/assets/89e317f6-35ec-4017-9d2a-943c55e087dd" />
 
 **Скріншот — таблиця `reviews`:**
-<img width="1398" height="219" alt="image" src="https://github.com/user-attachments/assets/69eca586-1c67-445e-b1f5-762bc56e7342" />
+
+<img width="2031" height="298" alt="image" src="https://github.com/user-attachments/assets/1cc38a5b-d9c9-4176-a8e6-c193170f1cf6" />
+
+**Скріншот — таблиця `car_categories`:**
+
+<img width="2031" height="298" alt="image" src="https://github.com/user-attachments/assets/63cecd07-022b-4593-a069-b597cd6f5595" />
 
 ---
 
