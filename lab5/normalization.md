@@ -14,50 +14,50 @@
 
 ```mermaid
 erDiagram
-    users ||--o{ cars    : "розміщує"
-    users ||--o{ rentals : "орендує"
-    cars  ||--o{ rentals : "входить у"
-    rentals ||--|| payments : "має"
-    rentals ||--o| reviews  : "отримує"
+    USER ||--o{ CAR : "розміщує"
+    USER ||--o{ RENTAL : "орендує"
+    CAR ||--o{ RENTAL : "входить у"
+    RENTAL ||--|| PAYMENT : "має"
+    RENTAL ||--o| REVIEW : "отримує"
 
-    users {
-        int     user_id        PK
-        string  full_name
-        string  phone          UK
-        string  email          UK
-        string  driver_license UK
+    USER {
+        int user_id PK
+        string full_name
+        string phone
+        string email
+        string driver_license
         timestamp created_at
     }
-    cars {
-        int     car_id        PK
-        int     owner_id      FK
-        string  brand
-        string  model
-        int     year
+    CAR {
+        int car_id PK
+        int owner_id FK
+        string brand
+        string model
+        int year
         decimal price_per_day
-        string  status
+        string status
     }
-    rentals {
-        int     rental_id   PK
-        int     car_id      FK
-        int     client_id   FK
-        date    start_date
-        date    end_date
+    RENTAL {
+        int rental_id PK
+        int car_id FK
+        int client_id FK
+        date start_date
+        date end_date
         decimal total_price
-        string  status
+        string status
     }
-    payments {
-        int     payment_id PK
-        int     rental_id  FK UK
+    PAYMENT {
+        int payment_id PK
+        int rental_id FK
         decimal amount
-        string  method
+        string method
         timestamp paid_at
     }
-    reviews {
-        int     review_id  PK
-        int     rental_id  FK UK
-        int     rating
-        text    comment
+    REVIEW {
+        int review_id PK
+        int rental_id FK
+        int rating
+        string comment
         timestamp created_at
     }
 ```
