@@ -1,0 +1,47 @@
+erDiagram
+    USER ||--o{ CAR : "розміщує"
+    USER ||--o{ RENTAL : "орендує"
+    CAR ||--o{ RENTAL : "входить у"
+    RENTAL ||--|| PAYMENT : "має"
+    RENTAL ||--o| REVIEW : "отримує"
+
+    USER {
+        int user_id PK
+        string full_name
+        string phone
+        string email
+        string driver_license
+        timestamp created_at
+    }
+    CAR {
+        int car_id PK
+        int owner_id FK
+        string brand
+        string model
+        int year
+        decimal price_per_day
+        string status
+    }
+    RENTAL {
+        int rental_id PK
+        int car_id FK
+        int client_id FK
+        date start_date
+        date end_date
+        decimal total_price
+        string status
+    }
+    PAYMENT {
+        int payment_id PK
+        int rental_id FK
+        decimal amount
+        string method
+        timestamp paid_at
+    }
+    REVIEW {
+        int review_id PK
+        int rental_id FK
+        int rating
+        string comment
+        timestamp created_at
+    }
